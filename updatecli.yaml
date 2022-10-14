@@ -1,6 +1,6 @@
 ---
 version: 0.33.3
-title: "Update jenkins-packer version"
+title: "Update test version"
 
 scms:
   default:
@@ -22,16 +22,13 @@ sources:
       command: echo '1'
 
 targets:
-  setAzureGalleryImageVersion:
-    sourceid: latestTestVersion
-    name: Bump test version
+  setLineWithMatchAndContent:
     kind: file
-    scmid: default
+    sourceid: latestTestVersion
     spec:
-      files:
-        - my-file.properties
-      matchpattern: 'abcd=(.+)"'
-      content: 'abcd={{ source `latestTestVersion` }}'
+      file: my-file.properties
+      matchPattern: 'abcd=(.+)'
+      content: 'abcd={{ source "latestTestVersion" }}'
 
 pullrequests:
   setVersion:
