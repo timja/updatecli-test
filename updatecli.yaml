@@ -10,8 +10,8 @@ scms:
       email: "{{ .github.email }}"
       owner: "{{ .github.owner }}"
       repository: "{{ .github.repository }}"
-      token: {{ or .github.token (requiredEnv "UPDATECLI_GITHUB_TOKEN") }}
-      username: {{ or .github.user (requiredEnv "UPDATECLI_GITHUB_ACTOR") }}
+      token: '{{ or .github.token (requiredEnv "UPDATECLI_GITHUB_TOKEN") }}'
+      username: '{{ or .github.user (requiredEnv "UPDATECLI_GITHUB_ACTOR") }}'
       branch: "{{ .github.branch }}"
 
 sources:
